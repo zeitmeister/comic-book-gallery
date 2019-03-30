@@ -26,10 +26,21 @@
         <h1>@seriesTitle</h1>
         <h2>Issue #@issueNumber</h2>
         <h5>Descprition:</h5>
-        <div>@Html.Raw(description)</div>
+        <div>@Html.Raw(description)</div> @*Html.Raw  används för att escape:a htmltaggarna så att browsern tolkar information som en paragrap tagg*@
+        @if (artists.Length > 0)
+        {
+            <h5>Artists:</h5>
+            <div>
+                <ul>
+                    @foreach (var artist in artists)
+                    {
+                        <li>@artist</li>
+                    }
 
-        <h5>Artists:</h5>
-        <div>@artists</div>
+                </ul>
+            </div>
+        }
+
     </div>
 </body>
 </html>
